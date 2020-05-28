@@ -115,7 +115,7 @@ export default {
                 
                 this.lista_tareas.splice(this.index, 1, this.usuario);
                 this.enEdicion = false;
-                this.listar_usuarios();
+                //this.listar_usuarios();
                 this.usuario={
                     tipo_documento:"",
                     documento:"",
@@ -138,7 +138,8 @@ export default {
 
             axios.delete(url, {headers: {token: this.token}})
             .then((response)=>{
-                this.listar_usuarios();
+                this.lista_usuarios.splice(item.index, 1);
+                //this.listar_usuarios();
                 alert("Campo eliminado correctamente correctamente");
             })
             .catch((error)=>{

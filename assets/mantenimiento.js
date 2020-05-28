@@ -118,7 +118,7 @@ export default {
                 this.mensajes(error);
             })
         },eliminarMantenimiento({item}){
-            this.enEdicion =true;
+            
             let url = config.url_api + `/mantenimientos/${item.placa}/${item.id_mecanico}/${item.fecha}`;
 
             axios.delete(url, {headers: {token: this.token}})

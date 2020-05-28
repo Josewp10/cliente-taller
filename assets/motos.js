@@ -126,8 +126,8 @@ export default {
             axios.put(url, this.moto, {headers:{token: this.token}})
             .then(response =>{
                 this.lista_motos.splice(this.index, 1, this.moto);
+                //this.listar_motos();
                 this.enEdicion = false;
-                this.listar_motos();
                 this.moto = {
                     placa:"",
                     estado:"",
@@ -148,13 +148,14 @@ export default {
             .catch(error =>{
                 this.mensajes(error);
             })
-        },eliminarMoto({item}){
-            this.enEdicion =true;
+        },eliminarMotos({item}){
+            
             let url = config.url_api + `/moto/${item.placa}`;
 
             axios.delete(url, {headers: {token: this.token}})
             .then((response)=>{
-                this.listar_motos();
+                this.lista_motos.splice(item.index, 1);
+                //this.listar_motos();
                 alert("Campo eliminado correctamente correctamente");
             })
             .catch((error)=>{

@@ -84,7 +84,7 @@
                 />
               </b-form-group>            
 
-              <b-button type="submit" variant="danger" v-if="!enEdicion">Crear Tarea</b-button>
+              <b-button type="submit" variant="danger" v-if="!enEdicion">Crear usuario</b-button>
               <b-button  variant="primary" v-else @click="actualizarUsuario()">Actualizar usuario</b-button>
               <b-button  variant="primary" v-if="enEdicion" @click="cambioValor()">Cancelar</b-button>
             </b-form>
