@@ -6,7 +6,10 @@
       <b-row cols="2">
         <b-col>
           <br />
-          <b-card title="Gestión de Motos">
+          
+             
+            <b-card title="Gestión de Motos">          
+            <b-img src="@/static/images/form.png" width="50" height="50"></b-img>
             <b-card-text>A continuación ingrese la información necesaria para el registro de la moto:</b-card-text>
             <!--FORMULARIO DE CREACIÓN DE MOTOS-->
             <b-form action="javascript:void(0)" >
@@ -103,14 +106,9 @@
               </b-form-group>
 
               <b-form-group label="Vencimiento SOAT" label-for="vencimiento_soat">
-                <b-form-input
-                  class="form-control"
-                 v-model="moto.vencimiento_soat"
-                  id="vencimiento_soat"
-                  type="date"
-                  required
-                  placeholder="Ingrese la fecha de vencimiento"
-                />
+                <b-form-datepicker v-model="moto.vencimiento_soat"
+                  id="vencimiento_soat" class="mb-2" placeholder="Ingrese la fecha de vencimiento"></b-form-datepicker>
+            
               </b-form-group>
 
               <b-form-group label="Número tecnomecanica" label-for="nro_tecnomecanica">
@@ -124,18 +122,13 @@
               </b-form-group>
 
               <b-form-group label="Vencimiento tecnomecanica" label-for="vencimiento_tecnomecanica">
-                <b-form-input
-                  class="form-control"
-                 v-model="moto.vencimiento_tecnomecanica"
-                  id="vencimiento_tecnomecanica"
-                  type="date"
-                  required
-                  placeholder="Ingrese la fecha de vencimiento"
-                />
-              </b-form-group>
+                <b-form-datepicker v-model="moto.vencimiento_tecnomecanica"
+                  id="vencimiento_tecnomecanica" class="mb-2"  placeholder="Ingrese la fecha de vencimiento"></b-form-datepicker>
+                              </b-form-group>
 
-              <b-button type="submit" variant="danger" v-if="!enEdicion">Crear Tarea</b-button>
-              <b-button  variant="primary" v-else>Actualizar moto</b-button>
+              <b-button type="submit" variant="danger" v-if="!enEdicion">Crear Moto</b-button>
+              <b-button  variant="primary" v-else @click="actualizarMoto()">Actualizar moto</b-button>
+              <b-button  variant="primary" v-if="enEdicion" @click="cambioValor()">Cancelar</b-button>
             </b-form>
           </b-card>
         </b-col>
@@ -150,14 +143,14 @@
             class="border text-center"
           >
             <template v-slot:cell(acciones)="row">
-              <b-button size="sm"  class="mr-2" variant="outline-primary">
+              <b-button size="sm"  class="mr-2" variant="outline-primary" @click="cargarMotos(row)">
                 <!--b-img left src="@/static/images/edit.png" width="15" height="15"></!--b-img-->Modificar
               </b-button>
               <br />
               <br />
               <b-button
                 size="sm"
-                
+                @click="eliminarMotos(row)"
                 class="mr-2"
                 variant="outline-danger"
               >

@@ -16,16 +16,19 @@
             </b-row>
             <b-form action="javascript:void(0)">
               <b-form-group id="input-group-2" label="Usuario" label-for="input-2">
-                <b-form-input id="email" placeholder="ingrese su cédula" v-model="usuario.id"></b-form-input>
-                <b-form-invalid-feedback :state="validar_Id"
-                >Campo obligatorio</b-form-invalid-feedback>
+                <b-form-input id="email" placeholder="ingrese su cédula" v-model="usuario.documento"></b-form-input>
+                <!--b-form-invalid-feedback :state="validar_Id"
+                >Campo obligatorio</!--b-form-invalid-feedback-->
               </b-form-group>
               <b-form-group id="input-group-2" label="Contraseña"  label-for="input-2">
                 <b-form-input id="contraseña" v-model="usuario.clave" type="password"></b-form-input>
-                <b-form-invalid-feedback :state="validar_Clave"
-                >Campo obligatorio</b-form-invalid-feedback>
+                <!--b-form-invalid-feedback :state="validar_Clave"
+                >Campo obligatorio</!--b-form-invalid-feedback-->
               </b-form-group>
               <b-button type="submit" variant="outline-danger"  @click="login()">Ingresar</b-button>
+              <br>
+              <br>
+              <span class="red--text py-2">{{ mensaje }}</span>
             </b-form>
           </b-card>
         </b-col>
